@@ -24,7 +24,9 @@ typealias geolog = PerseusGeoLocationKit.PerseusLogger
 
 // MARK: - Logger
 
-log.level = .info
+// log.level = .info
+
+dmlog.level = .info
 geolog.level = .info
 
 // MARK: - Construct the app's top elements
