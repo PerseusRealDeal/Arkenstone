@@ -75,7 +75,7 @@ func setMainWindow() {
        var frame = NSApplication.shared.windows.first?.frame {
 
         let height: CGFloat = 500 // Default main window height
-        let width: CGFloat = 800 // Default main window width
+        let width: CGFloat = 500 // Default main window width
 
         let origin_x = screen.frame.size.width / 2 - width / 2
         let origin_y = screen.frame.size.height / 2 - height / 2
