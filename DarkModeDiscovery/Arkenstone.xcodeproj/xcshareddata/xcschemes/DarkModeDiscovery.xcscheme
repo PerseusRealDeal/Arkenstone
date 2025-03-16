@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E00F837C288A4A04000D0A01"
                BuildableName = "Arkenstone.app"
-               BlueprintName = "DarkModeDiscovery"
-               ReferencedContainer = "container:DarkModeDiscovery.xcodeproj">
+               BlueprintName = "Arkenstone"
+               ReferencedContainer = "container:Arkenstone.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,9 +40,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B0158E229103C0D009F1803"
-               BuildableName = "DarkModeDiscoveryTests.xctest"
-               BlueprintName = "DarkModeDiscoveryTests"
-               ReferencedContainer = "container:DarkModeDiscovery.xcodeproj">
+               BuildableName = "ArkenstoneTests.xctest"
+               BlueprintName = "ArkenstoneTests"
+               ReferencedContainer = "container:Arkenstone.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E00F837C288A4A04000D0A01"
             BuildableName = "Arkenstone.app"
-            BlueprintName = "DarkModeDiscovery"
-            ReferencedContainer = "container:DarkModeDiscovery.xcodeproj">
+            BlueprintName = "Arkenstone"
+            ReferencedContainer = "container:Arkenstone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -87,8 +87,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E00F837C288A4A04000D0A01"
             BuildableName = "Arkenstone.app"
-            BlueprintName = "DarkModeDiscovery"
-            ReferencedContainer = "container:DarkModeDiscovery.xcodeproj">
+            BlueprintName = "Arkenstone"
+            ReferencedContainer = "container:Arkenstone.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
