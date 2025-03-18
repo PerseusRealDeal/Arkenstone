@@ -30,6 +30,14 @@ class LocationView: NSView {
     @IBOutlet private(set) weak var labelGeoCoupleValue: NSTextField!
 
     @IBOutlet private(set) weak var buttonRefresh: NSButton!
+    @IBOutlet private(set) weak var buttonOpenMap: NSButton!
+
+    private lazy var locationController = { () -> NSWindowController in
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Location"), bundle: nil)
+        let screen = storyboard.instantiateInitialController() as? NSWindowController
+
+        return screen ?? NSWindowController()
+    }()
 
     // MARK: - Actions
 
@@ -63,6 +71,10 @@ class LocationView: NSView {
         } catch {
             log.message("[\(type(of: self))].\(#function) - something totally wrong", .error)
         }
+    }
+
+    @IBAction func buttonOpenMapTapped(_ sender: NSButton) {
+        locationController.showWindow(sender)
     }
 
     // MARK: - Initialization

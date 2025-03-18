@@ -6,8 +6,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="LocationView" customModule="DarkModeDiscovery" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="LocationView" customModule="Arkenstone" customModuleProvider="target">
             <connections>
+                <outlet property="buttonOpenMap" destination="ST4-36-jKm" id="1hD-ue-1b5"/>
                 <outlet property="buttonRefresh" destination="Rt4-6V-u2J" id="qkB-sK-34A"/>
                 <outlet property="labelGeoCoupleValue" destination="H7e-9Y-s10" id="snC-12-neE"/>
                 <outlet property="labelPermissionValue" destination="71x-jc-6gh" id="8yG-LG-RbX"/>
@@ -20,6 +21,19 @@
             <rect key="frame" x="0.0" y="0.0" width="325" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-36-jKm">
+                    <rect key="frame" x="260" y="-2" width="67" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="53" id="Pk4-AK-p3X"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y6y-sF-vto">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonOpenMapTapped:" target="-2" id="EE6-8g-FF8"/>
+                    </connections>
+                </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="71x-jc-6gh">
                     <rect key="frame" x="18" y="67" width="169" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" title="Location Permission Status" id="ZoO-i7-WgI">
@@ -69,6 +83,8 @@
                 <constraint firstItem="3uB-QI-UYp" firstAttribute="leading" secondItem="71x-jc-6gh" secondAttribute="trailing" constant="5" id="Kgd-bD-ZqO"/>
                 <constraint firstAttribute="trailing" secondItem="3uB-QI-UYp" secondAttribute="trailing" constant="5" id="PaF-si-h11"/>
                 <constraint firstItem="H7e-9Y-s10" firstAttribute="centerY" secondItem="Rt4-6V-u2J" secondAttribute="centerY" id="RpO-rW-dMo"/>
+                <constraint firstAttribute="bottom" secondItem="ST4-36-jKm" secondAttribute="bottom" constant="5" id="aEM-ZQ-cuw"/>
+                <constraint firstAttribute="trailing" secondItem="ST4-36-jKm" secondAttribute="trailing" constant="5" id="hS0-QZ-Xku"/>
                 <constraint firstItem="H7e-9Y-s10" firstAttribute="leading" secondItem="Rt4-6V-u2J" secondAttribute="trailing" constant="5" id="hhW-L5-hqJ"/>
                 <constraint firstItem="Rt4-6V-u2J" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="5" id="kO0-jp-Wff"/>
                 <constraint firstItem="71x-jc-6gh" firstAttribute="centerY" secondItem="3uB-QI-UYp" secondAttribute="centerY" id="v81-m5-yKW"/>

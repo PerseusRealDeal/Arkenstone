@@ -9,7 +9,7 @@
         <!--Window Controller-->
         <scene sceneID="plz-Dn-1Nb">
             <objects>
-                <windowController id="VHw-gu-uhd" customClass="PreferencesWindowController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="VHw-gu-uhd" customClass="PreferencesWindowController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="dQe-r5-h6F">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -30,7 +30,7 @@
         <!--General-->
         <scene sceneID="zYJ-So-2PA">
             <objects>
-                <viewController title="General" id="2G3-pC-M2U" customClass="PreferencesViewController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="General" id="2G3-pC-M2U" customClass="PreferencesViewController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5RK-HS-UFI">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="228"/>
                         <autoresizingMask key="autoresizingMask"/>

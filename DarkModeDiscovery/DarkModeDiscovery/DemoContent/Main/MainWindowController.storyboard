@@ -9,7 +9,7 @@
         <!--Window Controller-->
         <scene sceneID="MXA-Sv-x0g">
             <objects>
-                <windowController id="zEn-H0-fel" customClass="MainWindowController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="zEn-H0-fel" customClass="MainWindowController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="macOS.DarkMode.Discovery" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="t5D-0x-IF4">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="99" y="99" width="500" height="500"/>
@@ -34,7 +34,7 @@
         <!--View Controller-->
         <scene sceneID="NpT-E3-ygb">
             <objects>
-                <viewController id="kd7-lM-5g6" customClass="ViewController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kd7-lM-5g6" customClass="ViewController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Wzp-zk-jds">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -54,7 +54,7 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageDark" value="DwarvesAndHiddenDoor"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Qj0-cm-h4X" customClass="LocationView" customModule="DarkModeDiscovery" customModuleProvider="target">
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Qj0-cm-h4X" customClass="LocationView" customModule="Arkenstone" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
                                             </customView>
                                         </subviews>
@@ -158,7 +158,7 @@
         <!--Companion List View Controller-->
         <scene sceneID="iCx-tK-FpQ">
             <objects>
-                <viewController id="gk4-fw-Opv" customClass="CompanionListViewController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gk4-fw-Opv" customClass="CompanionListViewController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="DrT-Ou-tXg">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -224,7 +224,7 @@
         <!--Companion View Controller-->
         <scene sceneID="0lK-y3-FRD">
             <objects>
-                <viewController id="54o-HC-niy" customClass="CompanionViewController" customModule="DarkModeDiscovery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="54o-HC-niy" customClass="CompanionViewController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="t5z-Ty-2yq">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
