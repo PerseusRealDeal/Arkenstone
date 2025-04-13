@@ -2,7 +2,7 @@
 //  PerseusDarkModeStar.swift
 //  Version: 2.0.0
 //
-//  Adoptation for macOS only.
+//  For macOS and iOS only. Use Stars to adopt for platform specifics you need.
 //
 //  Created by Mikhail Zhigulin in 7530.
 //
@@ -41,24 +41,21 @@
 // swiftlint:disable file_length
 //
 
+#if canImport(UIKit)
+import UIKit
+#elseif canImport(Cocoa)
 import Cocoa
+#endif
 import ConsolePerseusLogger
-
-public typealias DarkModeObject = NSObject
 
 public let APPEARANCE_DEFAULT = AppearanceStyle.light
 
 public let DARK_MODE_USER_CHOICE_KEY = "DarkModeUserChoiceOptionKey"
 public let DARK_MODE_USER_CHOICE_DEFAULT = DarkModeOption.auto
 
-public extension Notification.Name {
-    static let MakeAppearanceUpNotification =
-    Notification.Name("MakeAppearanceUpNotification")
-#if os(macOS)
-    static let AppleInterfaceThemeChangedNotification =
-    Notification.Name("AppleInterfaceThemeChangedNotification")
+#if os(iOS)
+public let DARK_MODE_SETTINGS_KEY = "DarkModeSettingsKey"
 #endif
-}
 
 #if os(macOS)
 public var DARK_APPEARANCE_DEFAULT_IN_USE: NSAppearance {
@@ -74,8 +71,17 @@ public var DARK_APPEARANCE_DEFAULT: NSAppearance?
 public var LIGHT_APPEARANCE_DEFAULT_IN_USE = NSAppearance(named: .aqua)!
 #endif
 
+public extension Notification.Name {
+    static let MakeAppearanceUpNotification =
+    Notification.Name("MakeAppearanceUpNotification")
+#if os(macOS)
+    static let AppleInterfaceThemeChangedNotification =
+    Notification.Name("AppleInterfaceThemeChangedNotification")
+#endif
+}
+
 // swiftlint:disable identifier_name
-public extension DarkModeObject {
+public extension NSObject {
     var DarkMode: DarkMode { return DarkModeAgent.shared }
     var DarkModeUserChoice: DarkModeOption { return DarkModeAgent.DarkModeUserChoice }
 }
@@ -114,7 +120,7 @@ public enum DarkModeOption: Int, CustomStringConvertible {
     }
 }
 
-public class DarkMode: DarkModeObject {
+public class DarkMode: NSObject {
 
     public var style: AppearanceStyle { return appearance }
 
@@ -134,6 +140,8 @@ public class DarkModeAgent {
         return userChoice
     }
 
+    public static var isEnabled: Bool { return true }
+
     // MARK: - Internals
 
     private static var userChoice: DarkModeOption {
@@ -150,7 +158,9 @@ public class DarkModeAgent {
         }
     }
 
+#if os(macOS)
     private static var distributedNCenter = DistributedNotificationCenter.default
+#endif
     private static var nCenter = NotificationCenter.default
     private static var ud = UserDefaults.standard
 
@@ -202,7 +212,26 @@ public class DarkModeAgent {
         DarkModeAgent.instance.notifyAllRegistered()
     }
 
+#if os(iOS)
+    public static func isDarkModeSettingsKeyChanged() -> DarkModeOption? {
+        let option = ud.valueExists(forKey: DARK_MODE_SETTINGS_KEY) ?
+        ud.integer(forKey: DARK_MODE_SETTINGS_KEY) : -1
+
+        guard option != -1, let settingsDarkMode = DarkModeOption.init(rawValue: option)
+        else { return nil }
+
+        return settingsDarkMode != userChoice ? settingsDarkMode : nil
+    }
+#endif
     // MARK: - Implementation
+
+#if os(iOS)
+    @available(iOS 13.0, *)
+    public static func processTraitCollectionDidChange(_ previous: UITraitCollection?) {
+        // TODO: iOS appearance change
+        log.message("[\(type(of: self))].\(#function) TODO: iOS appearance change")
+    }
+#endif
 
     @objc private func processAppleInterfaceThemeChanged() {
         refresh()
@@ -211,7 +240,10 @@ public class DarkModeAgent {
 
     private func refresh() {
         let choice = DarkModeAgent.userChoice
-
+#if os(iOS)
+        // TODO: iOS appearance change
+        log.message("[\(type(of: self))].\(#function) TODO: iOS appearance change")
+#elseif os(macOS)
         if #available(macOS 10.14, *) {
             switch choice {
             case .auto:
@@ -227,12 +259,14 @@ public class DarkModeAgent {
         } else { // For HighSierra.
             DarkModeAgent.shared.appearance = choice == .on ? .dark : .light
         }
+#endif
     }
 
     private func notifyAllRegistered() {
         DarkModeAgent.nCenter.post(name: .MakeAppearanceUpNotification, object: nil)
     }
 
+#if os(macOS)
     private func getRequired(from appearance: NSAppearance?) -> AppearanceStyle {
         let choice = DarkModeAgent.userChoice
 
@@ -250,6 +284,7 @@ public class DarkModeAgent {
             return choice == .off ? .dark : .light
         }
     }
+#endif
 }
 
 // MARK: - Helpers
@@ -285,3 +320,15 @@ public class DarkModeObserver: NSObject {
         }
     }
 }
+
+#if os(iOS)
+extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            return UIApplication.shared.windows.first { $0.isKeyWindow }
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+}
+#endif
