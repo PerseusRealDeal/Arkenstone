@@ -2,7 +2,7 @@
 //  PerseusDarkModeStar.swift
 //  Version: 2.0.0
 //
-//  For macOS and iOS only. Use Stars to adopt for platform specifics you need.
+//  For iOS and macOS only. Use Stars to adopt for the platform specifics you need.
 //
 //  Created by Mikhail Zhigulin in 7530.
 //
@@ -192,17 +192,6 @@ public class DarkModeAgent {
 #endif
     }
 
-#if os(iOS)
-    @available(iOS 13.0, *)
-    public static func processTraitCollectionDidChange(_ previous: UITraitCollection?) {
-        if let previous = previous?.userInterfaceStyle {
-            if UIWindow.systemStyle.rawValue != previous.rawValue {
-                DarkModeAgent.instance.processAppleInterfaceThemeChanged()
-            }
-        }
-    }
-#endif
-
     // MARK: - Contract
 
     public static func register(stakeholder: Any, selector: Selector) {
@@ -230,7 +219,19 @@ public class DarkModeAgent {
         DarkModeAgent.instance.notifyAllRegistered()
     }
 
+    // MARK: - iOS Contract specifics
+
 #if os(iOS)
+    @available(iOS 13.0, *)
+    public static func processTraitCollectionDidChange(_ previous: UITraitCollection?) {
+        if let previous = previous?.userInterfaceStyle {
+            if UIWindow.systemStyle.rawValue != previous.rawValue {
+                DarkModeAgent.instance.processAppleInterfaceThemeChanged()
+            }
+        }
+    }
+
+    // Returns nil if DarkMode equal to User choice or no value saved otherwise new value.
     public static func isDarkModeSettingsKeyChanged() -> DarkModeOption? {
         let option = ud.valueExists(forKey: DARK_MODE_SETTINGS_KEY) ?
         ud.integer(forKey: DARK_MODE_SETTINGS_KEY) : -1
