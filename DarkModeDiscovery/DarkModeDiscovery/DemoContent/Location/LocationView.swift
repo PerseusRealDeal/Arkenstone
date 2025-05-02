@@ -38,7 +38,7 @@ class LocationView: NSView {
 
         dealer.requestPermission { permit in
             if permit != .allowed {
-                GeoAgent.showRedirectAlert()
+                GeoAgent.showRedirectAlert(REDIRECT_ALERT_TITLES)
             }
         }
     }
@@ -55,7 +55,7 @@ class LocationView: NSView {
             if permit == .notDetermined {
                 dealer.requestPermission()
             } else {
-                GeoAgent.showRedirectAlert()
+                GeoAgent.showRedirectAlert(REDIRECT_ALERT_TITLES)
             }
 
         } catch {

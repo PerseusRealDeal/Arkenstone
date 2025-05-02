@@ -44,5 +44,7 @@ struct AppGlobals {
 
         locationDealer = GeoAgent.shared
         geoCoordinator = GeoCoordinator.shared
+
+        locationDealer.accuracy = PREFERED_ACCURACY
     }
 }
