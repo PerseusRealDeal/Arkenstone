@@ -34,6 +34,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
 
+        // Connect to Dark Mode explicitly
         DarkModeAgent.register(stakeholder: self, selector: #selector(makeUp))
     }
 

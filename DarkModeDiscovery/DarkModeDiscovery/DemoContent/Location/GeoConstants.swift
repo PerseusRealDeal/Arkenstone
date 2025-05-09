@@ -44,7 +44,7 @@ var CURRENT_LOCATION: String {
     return AppGlobals.currentLocation != nil ? CURRENT_GEO_POINT : DEFAULT_GEO_POINT
 }
 
-let REDIRECT_ALERT_TITLES = ActionAlertText(title: "Geo Agent for Arkenstone",
+let REDIRECT_ALERT_TITLES = ActionAlertText(title: "Geo Agent for The Arkenstone App",
                                             message: "Open Settings.app?",
                                             buttonCancel: "Cancel",
                                             buttonFunction: "Open")

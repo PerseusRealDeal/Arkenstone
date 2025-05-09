@@ -18,7 +18,7 @@ import PerseusGeoKit
 
 class GeoCoordinator: NSObject {
 
-    // MARK: - UI Geo Components
+    // MARK: - Geo Components
 
     public var locationView: LocationView?
     public var mapViewController: MapViewController?
@@ -37,6 +37,12 @@ class GeoCoordinator: NSObject {
         GeoAgent.register(self, #selector(locationStatusHandler(_:)), .locationStatus)
         GeoAgent.register(self, #selector(currentLocationHandler(_:)), .currentLocation)
         GeoAgent.register(self, #selector(locationUpdatesHandler(_:)), .locationUpdates)
+    }
+
+    // MARK: - Contract
+
+    public func reloadGeoComponents() {
+        updateGeoComponents()
     }
 }
 

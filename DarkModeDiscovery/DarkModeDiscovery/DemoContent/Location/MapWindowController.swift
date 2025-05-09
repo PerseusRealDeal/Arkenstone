@@ -28,8 +28,9 @@ class MapWindowController: NSWindowController, NSWindowDelegate {
             self.windowTitle(forDocumentDisplayName: title)
         }
 
+        // Connect to Dark Mode explicitly
         DarkModeAgent.register(stakeholder: self, selector: #selector(makeUp))
-        makeUp()
+        makeUp()// That's for now, call if not the first, main, screen.
     }
 
     @objc private func makeUp() {

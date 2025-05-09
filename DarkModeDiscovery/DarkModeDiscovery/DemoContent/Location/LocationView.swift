@@ -20,7 +20,7 @@ import PerseusDarkMode
 @IBDesignable
 class LocationView: NSView {
 
-    private let darkModeObserver = DarkModeObserver()
+    private let theDarknessTrigger = DarkModeObserver()
 
     @IBOutlet private(set) var viewContent: NSView!
 
@@ -108,8 +108,8 @@ class LocationView: NSView {
         // Connect to Geo coordinator
         globals.geoCoordinator.locationView = self
 
-        // Give Dark Mode observer the action
-        darkModeObserver.action = { _ in self.makeUp() }
+        // Connect to Dark Mode explicitly
+        theDarknessTrigger.action = { _ in self.makeUp() }
     }
 
     // MARK: - Contract

@@ -49,8 +49,9 @@ class CompanionViewController: NSViewController {
 
         updateCompanionView(nil)
 
+        // Connect to Dark Mode explicitly
         theDarknessTrigger.action = { _ in self.makeUp() }
-        makeUp() // That's for now.
+        makeUp() // That's for now, call if not the first, main, screen.
     }
 
     func updateCompanionView(_ companion: Companion?) {
