@@ -20,7 +20,7 @@ class OptionsWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        window?.appearance = NSAppearance(named: NSAppearance.Name.vibrantDark)
+        window?.appearance = DARK_APPEARANCE_DEFAULT_IN_USE
         if #available(macOS 10.14, *) { self.window?.title = "Options..." }
 
         DarkModeAgent.register(stakeholder: self, selector: #selector(makeUp))
@@ -29,12 +29,6 @@ class OptionsWindowController: NSWindowController, NSWindowDelegate {
 
     @objc private func makeUp() {
         log.message("[\(type(of: self))].\(#function)")
-        if #unavailable(macOS 10.14) { // For HighSierra only.
-
-            let isDark = DarkMode.style == .dark
-
-            window?.appearance = isDark ?
-            DARK_APPEARANCE_DEFAULT_IN_USE : LIGHT_APPEARANCE_DEFAULT_IN_USE
-        }
+        // let isDark = DarkMode.style == .dark
     }
 }

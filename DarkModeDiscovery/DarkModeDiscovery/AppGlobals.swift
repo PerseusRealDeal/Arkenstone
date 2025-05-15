@@ -67,9 +67,9 @@ struct AppGlobals {
         }
 
         GeoCoordinator.shared.locationUpdatesRecieved = { updates in
-            if let lastone = updates.last {
+            if let thelastone = updates.last {
                 log.message("recieved location updates: \(updates.count)")
-                AppGlobals.currentLocation = lastone
+                AppGlobals.currentLocation = thelastone
             }
         }
     }

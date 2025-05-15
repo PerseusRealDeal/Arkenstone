@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="LRv-GY-PgF">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <plugIn identifier="com.apple.MapKitIBPlugin" version="21507"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,11 +15,11 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="ENh-LT-Ttf">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="294" y="313" width="520" height="300"/>
+                        <rect key="contentRect" x="294" y="313" width="720" height="460"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
-                        <value key="minSize" type="size" width="520" height="300"/>
+                        <value key="minSize" type="size" width="720" height="460"/>
                         <view key="contentView" id="AEJ-Ys-oIV">
-                            <rect key="frame" x="0.0" y="0.0" width="520" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="720" height="460"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
                         <connections>
@@ -40,8 +42,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="520" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-hh-bhk">
+                            <mapView showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jhs-hh-bhk">
                                 <rect key="frame" x="0.0" y="0.0" width="520" height="300"/>
+                                <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
                             </mapView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f43-QN-Yp7">
                                 <rect key="frame" x="413" y="243" width="104" height="32"/>
@@ -139,7 +142,7 @@
                 </viewController>
                 <customObject id="INi-pV-9is" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="263"/>
+            <point key="canvasLocation" x="-76" y="368"/>
         </scene>
     </scenes>
 </document>

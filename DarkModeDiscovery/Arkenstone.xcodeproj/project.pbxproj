@@ -712,7 +712,7 @@
 			repositoryURL = "https://github.com/perseusrealdeal/ConsolePerseusLogger";
 			requirement = {
 				kind = exactVersion;
-				version = 1.1.0;
+				version = 1.2.0;
 			};
 		};
 		2EE1B7822DBE5D6300375792 /* XCRemoteSwiftPackageReference "PerseusDarkMode" */ = {

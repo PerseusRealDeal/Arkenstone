@@ -50,8 +50,6 @@ class MapViewController: NSViewController {
 
         // Connect to Geo Coordinator
         GeoCoordinator.register(stakeholder: self, selector: #selector(reload))
-
-        log.message("[\(type(of: self))].\(#function)")
     }
 
     override func viewDidAppear() {
@@ -66,8 +64,6 @@ class MapViewController: NSViewController {
         } else {
             reload()
         }
-
-        log.message("[\(type(of: self))].\(#function)")
     }
 }
 
