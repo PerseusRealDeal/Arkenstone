@@ -33,7 +33,13 @@ class LocationView: NSView {
 
     @IBAction func buttonRefreshStatusTapped(_ sender: NSButton) {
         labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized
-        LocationDealer.requestPermission()
+
+        if GeoAgent.currentStatus == .allowed {
+            REDIRECT_ALERT_TITLES.title = REDIRECT_ALERT_TITLES.titleWithStatus
+            GeoAgent.showRedirectAlert(REDIRECT_ALERT_TITLES)  // Offer redirect.
+        } else {
+            LocationDealer.requestPermission()
+        }
     }
 
     @IBAction func buttonRefreshCurrentTapped(_ sender: NSButton) {

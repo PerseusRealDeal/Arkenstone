@@ -45,12 +45,19 @@ class MapViewController: NSViewController {
     }
 
     @IBAction func actionButtonGoToPointTapped(_ sender: NSButton) {
+
         mapToCurrent()
     }
 
     @IBAction func actionButtonRefreshStatusTapped(_ sender: NSButton) {
         labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized
-        LocationDealer.requestPermission()
+
+        if GeoAgent.currentStatus == .allowed {
+            REDIRECT_ALERT_TITLES.title = REDIRECT_ALERT_TITLES.titleWithStatus
+            GeoAgent.showRedirectAlert(REDIRECT_ALERT_TITLES)  // Offer redirect.
+        } else {
+            LocationDealer.requestPermission()
+        }
     }
 
     @IBAction func actionButtonAutoMapTapped(_ sender: NSButton) {
@@ -107,6 +114,9 @@ extension MapViewController {
     }
 
     private func mapToCurrent() {
+
+        mapView.showsUserLocation = true
+
         guard let location = AppGlobals.currentLocation else { return }
 
         let point = CLLocation(latitude: location.latitude, longitude: location.longitude)
@@ -115,7 +125,6 @@ extension MapViewController {
                                         longitudinalMeters: DEFAULT_MAP_RADIUS)
 
         mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
     }
 
     private func refreshLogReportTextView() {
