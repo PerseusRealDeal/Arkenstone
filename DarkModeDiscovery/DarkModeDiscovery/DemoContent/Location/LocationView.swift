@@ -26,10 +26,16 @@ class LocationView: NSView {
 
     @IBOutlet private(set) weak var labelGeoStatus: NSTextField!
     @IBOutlet private(set) weak var labelCoordinate: NSTextField!
+    @IBOutlet private(set) weak var labelAboutStatus: NSTextField!
 
     @IBOutlet private(set) weak var buttonRefresh: NSButton!
 
     // MARK: - Actions
+
+    @IBAction func buttonAboutStatusTapped(_ sender: NSButton) {
+        let status = GeoAgent.aboutLocationServices()
+        labelAboutStatus.stringValue = "enabled: \(status.enabled), auth: \(status.auth)"
+    }
 
     @IBAction func buttonRefreshStatusTapped(_ sender: NSButton) {
         labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized
@@ -111,5 +117,6 @@ extension LocationView {
 
         labelGeoStatus.textColor = .customLabel
         labelCoordinate.textColor = .customLabel
+        labelAboutStatus.textColor = .customLabel
     }
 }

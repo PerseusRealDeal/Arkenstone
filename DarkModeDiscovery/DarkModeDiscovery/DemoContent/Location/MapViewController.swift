@@ -32,6 +32,13 @@ class MapViewController: NSViewController {
     @IBOutlet private(set) weak var labelCoordinate: NSTextField!
     @IBOutlet private(set) weak var labelGeoStatus: NSTextField!
 
+    @IBOutlet private(set) weak var labelAboutStatus: NSTextField!
+
+    @IBAction func buttonAboutStatusTapped(_ sender: NSButton) {
+        let status = GeoAgent.aboutLocationServices()
+        labelAboutStatus.stringValue = "enabled: \(status.enabled), auth: \(status.auth)"
+    }
+
     @IBAction func actionButtonStopTapped(_ sender: NSButton) {
         GeoAgent.shared.stopUpdatingLocation()
     }
