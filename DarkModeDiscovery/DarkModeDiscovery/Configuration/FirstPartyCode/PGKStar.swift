@@ -215,6 +215,8 @@ public class GeoAgent: NSObject {
 
 #elseif os(macOS)
 
+        // if statusOpenCoreFlag { reInitLocationManager() }
+
         if #available(macOS 10.15, *) {
             switch authorization {
             case .whenInUse:
@@ -298,7 +300,11 @@ public class GeoAgent: NSObject {
 
     // MARK: - Hot Fixes
 
+    internal var statusOpenCoreFlag = false
+
     internal func reInitLocationManager() {
+
+        log.message("[\(type(of: self))].\(#function)")
 
         let desiredAccuracy = locationManager.desiredAccuracy
 
@@ -342,7 +348,7 @@ extension CLAuthorizationStatus: CustomStringConvertible {
 
 extension GeoAgent: CLLocationManagerDelegate {
 
-    // MARK: - To catch location service error
+    // MARK: - Location Services Error
 
     public func locationManager(_ manager: CLLocationManager,
                                 didFailWithError error: Error) {
@@ -362,19 +368,10 @@ extension GeoAgent: CLLocationManagerDelegate {
 
 #endif
 
-
         let nsError = error as NSError
         let result: LocationError = .failedRequest(error.localizedDescription,
                                                    nsError.domain,
                                                    nsError.code)
-
-        if nsError.domain == kCLErrorDomain, nsError.code == 1 {
-            if GeoAgent.aboutLocationServices().auth == .notDetermined {
-                let notice = "domain: kCLErrorDomain, code: 1, status: .notDetermined"
-                log.message("[\(type(of: self))].\(#function) \(notice)", .error)
-                // reInitLocationManager()
-            }
-        }
 
         // ISSUE: macOS (new releases) generates an error on startUpdatingLocation() if
         // an end-user makes no decision about permission immediately, 2 or 3 sec.
@@ -386,17 +383,28 @@ extension GeoAgent: CLLocationManagerDelegate {
 
         if order == .permission, geoStatus == .notDetermined {
 
+            // HOTFIX: End-user took more than 2 or 3 sec to make decision.
+
             locationManager.stopUpdatingLocation()
             order = .none
 
-            // It means that an end-user took more than 2 or 3 sec to make decision.
-            // Does nothing, just a note.
-
-            // List of macOS systems:
+            // List of macOS systems that generate error if start in .notDetermined:
             // Starting from macOS Ventura than Sonoma, Sequoia systems.
 
             let notice = "order: .permission, status: .notDetermined"
             log.message("[\(type(of: self))].\(#function) \(notice)", .notice)
+
+            return
+        } else if nsError.domain == kCLErrorDomain, nsError.code == 1,
+                  type(of: locationManager).authorizationStatus() == .notDetermined {
+
+            // HOTFIX: OpenCore Location Services Status.
+            // Reinit location manager.
+
+            let notice = "domain: kCLErrorDomain, code: 1, status: .notDetermined"
+            log.message("[\(type(of: self))].\(#function) \(notice)", .error)
+
+            reInitLocationManager()
 
             return
         }
@@ -408,7 +416,7 @@ extension GeoAgent: CLLocationManagerDelegate {
         notificationCenter.post(name: GeoEvent.locationError.name, object: result)
     }
 
-    // MARK: - To catch location status change
+    // MARK: - Location Services Status Change
 
     public func locationManager(_ manager: CLLocationManager,
                                 didChangeAuthorization status: CLAuthorizationStatus) {
@@ -417,15 +425,20 @@ extension GeoAgent: CLLocationManagerDelegate {
 
         var auth = status
 
-        if status == .notDetermined {
-            // reInitLocationManager()
+        if status == .notDetermined, statusOpenCoreFlag == false {
+            // HOTFIX: OpenCore Location Services Status
+            statusOpenCoreFlag = true
+            reInitLocationManager()
+
             // auth = type(of: locationManager).authorizationStatus()
+
+            return
         }
 
         notificationCenter.post(name: GeoEvent.locationStatus.name, object: auth)
     }
 
-    // MARK: - To catch current location and updates
+    // MARK: - Location Services Location Data
 
     public func locationManager(_ manager: CLLocationManager,
                                 didUpdateLocations locations: [CLLocation]) {
