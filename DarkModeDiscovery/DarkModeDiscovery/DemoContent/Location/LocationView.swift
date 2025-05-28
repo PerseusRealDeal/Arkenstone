@@ -14,7 +14,7 @@
 import Cocoa
 
 import ConsolePerseusLogger
-// import PerseusGeoKit
+import PerseusGeoKit
 import PerseusDarkMode
 
 @IBDesignable
@@ -37,7 +37,7 @@ class LocationView: NSView {
         let status = GeoAgent.aboutLocationServices()
 
         let locationServicesStatus = "enabled: \(status.enabled), auth: \(status.auth)"
-        let currentStatusDetails = "\(status.inDetails)"
+        let currentStatusDetails = "\(status.inDetail)"
 
         labelAboutStatus.stringValue = "\(currentStatusDetails) = \(locationServicesStatus)"
     }

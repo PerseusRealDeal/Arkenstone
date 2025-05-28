@@ -15,7 +15,7 @@ import AppKit
 import MapKit
 
 import ConsolePerseusLogger
-// import PerseusGeoKit
+import PerseusGeoKit
 
 class MapViewController: NSViewController {
 
@@ -74,7 +74,8 @@ class MapViewController: NSViewController {
     }
 
     @IBAction func actionButtonReinitTapped(_ sender: NSButton) {
-        GeoAgent.shared.reInitLocationManager()
+        // GeoAgent.shared.reInitLocationManager()
+        log.message("[\(type(of: self))].\(#function) Direct Access via PGKStar.swift Only")
     }
 
     override func viewDidLoad() {
@@ -89,7 +90,7 @@ class MapViewController: NSViewController {
         GeoCoordinator.register(stakeholder: self, selector: #selector(reload))
 
         // Connect to Log Reporting
-        observation = geoReport.observe(\.lastMessage, options: .new) { _, _ in
+        observation = logReport.observe(\.lastMessage, options: .new) { _, _ in
             self.refreshLogReportTextView()
         }
 

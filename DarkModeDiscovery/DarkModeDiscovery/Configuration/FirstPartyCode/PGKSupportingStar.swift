@@ -44,7 +44,7 @@
 //
 
 import ConsolePerseusLogger
-// import PerseusGeoKit
+import PerseusGeoKit
 
 #if os(iOS)
 import UIKit
