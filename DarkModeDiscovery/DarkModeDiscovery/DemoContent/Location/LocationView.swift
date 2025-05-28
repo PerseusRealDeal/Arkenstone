@@ -33,11 +33,17 @@ class LocationView: NSView {
     // MARK: - Actions
 
     @IBAction func buttonAboutStatusTapped(_ sender: NSButton) {
+
         let status = GeoAgent.aboutLocationServices()
-        labelAboutStatus.stringValue = "enabled: \(status.enabled), auth: \(status.auth)"
+
+        let locationServicesStatus = "enabled: \(status.enabled), auth: \(status.auth)"
+        let currentStatusDetails = "\(status.inDetails)"
+
+        labelAboutStatus.stringValue = "\(currentStatusDetails) = \(locationServicesStatus)"
     }
 
     @IBAction func buttonRefreshStatusTapped(_ sender: NSButton) {
+
         labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized
 
         if GeoAgent.currentStatus == .allowed {

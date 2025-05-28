@@ -35,10 +35,13 @@ class MapViewController: NSViewController {
     @IBOutlet private(set) weak var labelAboutStatus: NSTextField!
 
     @IBAction func buttonAboutStatusTapped(_ sender: NSButton) {
-        labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized
 
         let status = GeoAgent.aboutLocationServices()
-        labelAboutStatus.stringValue = "enabled: \(status.enabled), auth: \(status.auth)"
+
+        let locationServicesStatus = "enabled: \(status.enabled), auth: \(status.auth)"
+        let currentStatusDetails = "\(GeoAgent.currentStatus)"
+
+        labelAboutStatus.stringValue = "\(currentStatusDetails) = \(locationServicesStatus)"
     }
 
     @IBAction func actionButtonStopTapped(_ sender: NSButton) {
