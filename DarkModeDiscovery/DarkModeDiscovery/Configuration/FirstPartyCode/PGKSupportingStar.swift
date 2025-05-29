@@ -1,6 +1,6 @@
 //
 //  PGKSupportingStar.swift
-//  Version: 1.0.0
+//  Version: 1.0.1
 //
 //  PerseusGeoKit Support Code
 //
@@ -53,7 +53,7 @@ import MapKit
 
 // MARK: - Geo Constants
 
-let PREFERED_ACCURACY: GeoAccuracy = .threeKilometers
+let DEFAULT_ACCURACY: GeoAccuracy = .threeKilometers
 
 let DEFAULT_MAP_POINT = CLLocation(latitude: 55.036857, longitude: 82.914063)
 let DEFAULT_MAP_RADIUS: CLLocationDistance = 1000
@@ -77,6 +77,26 @@ extension ActionAlertText {
 extension Notification.Name {
     static let ReloadGeoDataNotification = Notification.Name("ReloadGeoDataNotification")
 }
+
+#if os(iOS)
+
+extension UIView {
+
+    func parentViewController() -> UIViewController? {
+
+        guard let responder = self.next as? UIViewController else {
+            guard let responder = self.next as? UIView else {
+                return nil
+            }
+
+            return responder.parentViewController()
+        }
+
+        return responder
+    }
+}
+
+#endif
 
 // MARK: - LocationDealer class
 
@@ -248,15 +268,19 @@ class GeoCoordinator: NSObject {
         }
 
         switch error {
-        case .failedRequest(_, let domain, let code):
+        case .failedRequest(let desc, let domain, let code):
             let domaincode = "domain: \(domain), code: \(code)"
-            switch code {
-            case 0:
-                errtext = "hardware issue: try to tap Wi-Fi in system tray, \(domaincode)"
-            case 1:
-                errtext = "permission required, \(domaincode)"
-            default:
-                break
+            if desc.contains("[NOTKNOWN]") {
+                errtext = "\(desc), \(domaincode)"
+            } else {
+                switch code {
+                case 0:
+                    errtext = "hardware issue: try to tap Wi-Fi in system tray, \(domaincode)"
+                case 1:
+                    errtext = "permission required, \(domaincode)"
+                default:
+                    break
+                }
             }
         default:
             break

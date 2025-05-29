@@ -55,7 +55,7 @@ struct AppGlobals {
     init() {
         log.message("[\(type(of: self))].\(#function)", .info)
 
-        GeoAgent.currentAccuracy = PREFERED_ACCURACY
+        GeoAgent.currentAccuracy = DEFAULT_ACCURACY
 
         GeoCoordinator.shared.onStatusAllowed = {
             // LocationDealer.requestCurrent()

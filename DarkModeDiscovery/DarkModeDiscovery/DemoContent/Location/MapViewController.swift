@@ -74,8 +74,7 @@ class MapViewController: NSViewController {
     }
 
     @IBAction func actionButtonReinitTapped(_ sender: NSButton) {
-        // GeoAgent.shared.reInitLocationManager()
-        log.message("[\(type(of: self))].\(#function) Direct Access via PGKStar.swift Only")
+        GeoAgent.reInit()
     }
 
     override func viewDidLoad() {
