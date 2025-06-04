@@ -2,24 +2,19 @@
 //  Race.swift
 //  DarkModeDiscovery
 //
-//  Created by Mikhail Zhigulin in 7530.
+//  Created by Mikhail A. Zhigulin of Novosibirsk.
 //
-//  Copyright © 7530 - 7533 Mikhail A. Zhigulin of Novosibirsk
-//  Copyright © 7530 - 7533 PerseusRealDeal
-//
-//  Licensed under the special license. See LICENSE file.
-//  All rights reserved.
+//  Unlicensed Free Software.
 //
 
 import Foundation
 
-/// Represents a set of races faced in the story of the middle-earth.
 enum Race: String, Decodable {
+
     case hobbits
     case ainur
     case dwarves
 
-    /// The one of the race.
     var single: String {
         switch self {
         case .hobbits:

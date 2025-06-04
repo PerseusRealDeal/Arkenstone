@@ -20,7 +20,7 @@ jobs:
     - name: Show xcode embedded SDKs
       run: xcodebuild -showsdks
     - name: Show buildable schemes
-      run: xcodebuild -list -project ./DarkModeDiscovery/DarkModeDiscovery.xcodeproj
+      run: xcodebuild -list -project ./DarkModeDiscovery/Arkenstone.xcodeproj
     - uses: mxcl/xcodebuild@v1.9.2 
       with:
         platform: macOS
@@ -41,7 +41,7 @@ jobs:
     - name: Show xcode embedded SDKs
       run: xcodebuild -showsdks
     - name: Show buildable schemes
-      run: xcodebuild -list -project ./DarkModeDiscovery/DarkModeDiscovery.xcodeproj
+      run: xcodebuild -list -project ./DarkModeDiscovery/Arkenstone.xcodeproj
     - uses: mxcl/xcodebuild@v1.9.2 
       with:
         platform: macOS

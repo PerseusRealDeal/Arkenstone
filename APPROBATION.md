@@ -30,7 +30,7 @@
 | Sonoma      | 14.7.1   | ??       | -       |
 | Sequoia     | 15.1.1   | ??       | -       |
 
-> Approbated capability: Geo Location<br/>
+> Approbated capability: Location<br/>
 
 | macOS       | Version  | GeoLocation | Details |
 | ----------- | -------- | :---------: | ------- |
