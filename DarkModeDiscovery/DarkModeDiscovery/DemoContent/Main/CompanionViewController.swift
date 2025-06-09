@@ -2,16 +2,13 @@
 //  CompanionViewController.swift
 //  DarkModeDiscovery
 //
-//  Created by Mikhail Zhigulin in 7531.
+//  Created by Mikhail A. Zhigulin of Novosibirsk.
 //
-//  Copyright © 7531 Mikhail Zhigulin of Novosibirsk.
-//  Copyright © 7531 PerseusRealDeal.
-//
-//  Licensed under the special license. See LICENSE file.
-//  All rights reserved.
+//  Unlicensed Free Software.
 //
 
 import Cocoa
+import PerseusDarkMode
 
 class CompanionViewController: NSViewController {
 
@@ -27,7 +24,7 @@ class CompanionViewController: NSViewController {
 
     @IBOutlet weak var imageView: DarkModeImageView!
 
-    let darkModeObserver = DarkModeObserver()
+    let theDarknessTrigger = DarkModeObserver()
 
     var companion: Companion? {
         didSet {
@@ -46,10 +43,11 @@ class CompanionViewController: NSViewController {
 
         bioTextView.backgroundColor = .clear
 
-        darkModeObserver.action = { _ in self.callDarkModeSensitiveColours() }
-
-        callDarkModeSensitiveColours()
         updateCompanionView(nil)
+
+        // Connect to Dark Mode explicitly
+        theDarknessTrigger.action = { _ in self.makeUp() }
+        makeUp() // That's for now, call if not the first, main, screen.
     }
 
     func updateCompanionView(_ companion: Companion?) {
@@ -75,7 +73,7 @@ class CompanionViewController: NSViewController {
         bioTextView.string = friend.characteristics
     }
 
-    private func callDarkModeSensitiveColours() {
+    private func makeUp() {
         self.ageLabel.textColor = .customLabel
         self.raceLabel.textColor = .customLabel
 

@@ -2,20 +2,81 @@
 //  main.swift
 //  DarkModeDiscovery
 //
-//  Created by Mikhail Zhigulin in 7530.
+//  Created by Mikhail A. Zhigulin of Novosibirsk.
 //
-//  Copyright © 7530 - 7531 Mikhail Zhigulin of Novosibirsk.
-//  Copyright © 7530 - 7531 PerseusRealDeal.
-//
-//  Licensed under the special license. See LICENSE file.
-//  All rights reserved.
+//  Unlicensed Free Software.
 //
 
 import Cocoa
+import ConsolePerseusLogger
+
+import class PerseusDarkMode.PerseusLogger
+import class PerseusGeoKit.PerseusLogger
+
+// swiftlint:disable type_name
+typealias dmlog = PerseusDarkMode.PerseusLogger
+typealias geolog = PerseusGeoKit.PerseusLogger
+// swiftlint:enable type_name
+
+// MARK: - Log Reports
+
+class LogReport: NSObject {
+
+    public var text: String { report }
+
+    @objc dynamic var lastMessage: String = "" {
+        didSet {
+            let count = report.count
+            if count > LIMIT {
+                report = report.dropFirst(count - LIMIT).description
+
+                if let position = report.range(of: newline)?.upperBound {
+                    report.removeFirst(position.utf16Offset(in: report)-2)
+                }
+            }
+
+            report.append(lastMessage + newline)
+        }
+    }
+
+    private var report = ""
+
+    private let LIMIT = 1000
+    private let newline = "\r\n--\r\n"
+}
+
+typealias LogLevel = ConsolePerseusLogger.PerseusLogger.Level
+
+func reportGeoEvent(_ text: String, _ type: LogLevel, _ localTime: LocalTime) {
+    logReport.lastMessage = "[\(localTime.date)] [\(localTime.time)]\r\n> \(text)"
+}
+
+let logReport = LogReport()
 
 // MARK: - Logger
 
-PerseusLogger.level = .info
+// log.turned = .off
+dmlog.turned = .off
+// geolog.turned = .off
+
+log.output = .consoleapp
+// dmlog.output = .consoleapp
+geolog.output = .consoleapp
+
+log.format = .textonly
+// dmlog.format = .textonly
+geolog.format = .textonly
+
+// geolog.output = .custom
+log.customActionOnMessage = reportGeoEvent(_:_:_:)
+
+// log.time = true
+// dmlog.time = true
+// geolog.time = true
+
+log.message("The app's start point...", .info)
+
+let globals = AppGlobals()
 
 // MARK: - Construct the app's top elements
 
@@ -32,6 +93,15 @@ let mainMenu = NSNib(nibNamed: NSNib.Name("MainMenu"), bundle: nil)
 
 // MARK: - Run the app
 
+/*
+
+ .accessory
+
+ The application doesn’t appear in the Dock and doesn’t have a menu bar, but it may be
+ activated programmatically or by clicking on one of its windows.
+
+ */
+
 app.setActivationPolicy(.regular)
 
 mainMenu?.instantiate(withOwner: app, topLevelObjects: nil)
@@ -42,12 +112,14 @@ app.delegate = appDelegate as? NSApplicationDelegate
 app.activate(ignoringOtherApps: true)
 app.run()
 
+// MARK: - Custom Main Window
+
 func setMainWindow() {
     if let screen = NSScreen.main,
        NSApplication.shared.windows.first?.windowController is MainWindowController,
        var frame = NSApplication.shared.windows.first?.frame {
 
-        let height: CGFloat = 500 // Default main window height
+        let height: CGFloat = 600 // Default main window height
         let width: CGFloat = 800 // Default main window width
 
         let origin_x = screen.frame.size.width / 2 - width / 2

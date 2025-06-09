@@ -1,56 +1,96 @@
-# macos.darkmode.discovery
+# macOS discovery project — Xcode 14.2+
 
-[![Actions Status](https://github.com/perseusrealdeal/macos.darkmode.discovery/actions/workflows/main.yml/badge.svg)](https://github.com/perseusrealdeal/macos.darkmode.discovery/actions)
-![Version](https://img.shields.io/badge/App_Version-1.2-green.svg)
-[![Platform macOS](https://img.shields.io/badge/Platform-macOS%2010.11+-orange.svg)](https://en.wikipedia.org/wiki/MacOS_version_history)
-[![Xcode 10.1](https://img.shields.io/badge/Xcode-10.1+-red.svg)](https://en.wikipedia.org/wiki/Xcode)
-[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-red.svg)](https://docs.swift.org/swift-book/RevisionHistory/RevisionHistory.html)
-[![License](http://img.shields.io/:License-MIT-blue.svg)](/LICENSE)
+> This is a fan macOS app themed with the Middle-earth adventures from the motion picture `The Hobbit` based on the novel by `J.R.R. Tolkien`.
+
+[![Actions Status](https://github.com/perseusrealdeal/arkenstone/actions/workflows/main.yml/badge.svg)](https://github.com/perseusrealdeal/arkenstone/actions/workflows/main.yml)
+[![Style](https://github.com/perseusrealdeal/arkenstone/actions/workflows/swiftlint.yml/badge.svg)](https://github.com/perseusrealdeal/arkenstone/actions/workflows/swiftlint.yml)
+![Version](https://img.shields.io/badge/Version-2.0-green.svg)
+[![Platforms](https://img.shields.io/badge/Platform-macOS%2010.13+-orange.svg)](https://en.wikipedia.org/wiki/MacOS_version_history)
+[![Xcode](https://img.shields.io/badge/Xcode-14.2+-red.svg)](https://en.wikipedia.org/wiki/Xcode)
+[![Swift](https://img.shields.io/badge/Swift-5-orange.svg)](https://docs.swift.org/swift-book/RevisionHistory/RevisionHistory.html)
+[![SDK](https://img.shields.io/badge/SDK-UIKit%20-blueviolet.svg)](https://developer.apple.com/documentation/uikit)
+[![License](http://img.shields.io/:License-Unlicense-green.svg)](/LICENSE)
 
 ## Dependencies
 
-[![PerseusDarkMode](http://img.shields.io/:PerseusDarkMode-1.1.5-green.svg)](https://github.com/perseusrealdeal/PerseusDarkMode/tree/1.1.5)
-[![PerseusUISystemKit](http://img.shields.io/:PerseusUISystemKit-1.1.4-green.svg)](https://github.com/perseusrealdeal/PerseusUISystemKit/tree/1.1.4)
+> Swift Package Manager.
+
+[![ConsolePerseusLogger](http://img.shields.io/:ConsolePerseusLogger-1.3.0-green.svg)](https://github.com/perseusrealdeal/ConsolePerseusLogger.git)
+[![PerseusDarkMode](http://img.shields.io/:PerseusDarkMode-2.0.1-green.svg)](https://github.com/perseusrealdeal/PerseusDarkMode.git)
+[![PerseusGeoKit](http://img.shields.io/:PerseusGeoKit-1.0.1-green.svg)](https://github.com/perseusrealdeal/PerseusGeoKit.git)
 
 # In brief
 
-> This project is used to prove a set of Perseus Dark Mode capabilities.
+> Serves the only one purpose —— the first-party software approbation.
 
 ![Hobbit](https://user-images.githubusercontent.com/50202963/214910458-781beb39-c6fe-4b73-b7df-eec9f1bfc708.gif)
 
-# Requirements
+> [!IMPORTANT]
+> The screenshot scenes taken from the motion picture `The Hobbit` based on the novel by `J.R.R. Tolkien`.
 
-- [macOS 10.13.6+](https://apps.apple.com/us/app/macos-high-sierra/id1246284741?ls=1)
-- [Xcode 10.1+](https://stackoverflow.com/questions/10335747/how-to-download-xcode-dmg-or-xip-file)
-- Swift 4.2+
-- AppKit SDK
+## Approbation Matrix
+
+> [`A3 Environment and Approbation`](/APPROBATION.md)
+
+## Build system requirements
+
+- [macOS Monterey 12.7.6+](https://apps.apple.com/by/app/macos-monterey/id1576738294) / [Xcode 14.2+](https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_14.2/Xcode_14.2.xip)
 
 # First-party software
 
-- [Perseus Dark Mode](https://github.com/perseusrealdeal/PerseusDarkMode.git) / [1.1.5](https://github.com/perseusrealdeal/perseusdarkmode/releases/tag/1.1.5)
-- [Perseus UI System Kit](https://github.com/perseusrealdeal/PerseusUISystemKit.git) / [1.1.4](https://github.com/perseusrealdeal/perseusuisystemkit/releases/tag/1.1.4)
-- [Dark Mode switching functions](https://gist.github.com/perseusrealdeal/11b1bab47f13134832b859f49d9af706)
-- [PerseusLogger](https://gist.github.com/perseusrealdeal/df456a9825fcface44eca738056eb6d5)
+| Type    | Name                                                                                                                                                                  | License |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| Package | [ConsolePerseusLogger](https://github.com/perseusrealdeal/ConsolePerseusLogger) / [1.3.0](https://github.com/perseusrealdeal/ConsolePerseusLogger/releases/tag/1.3.0) | MIT     |
+| Package | [PerseusDarkMode](https://github.com/perseusrealdeal/PerseusDarkMode) / [2.0.1](https://github.com/perseusrealdeal/PerseusDarkMode/releases/tag/2.0.1)                | MIT     |
+| Package | [PerseusGeoKit](https://github.com/perseusrealdeal/PerseusGeoKit) / [1.0.1](https://github.com/perseusrealdeal/PerseusGeoKit/releases/tag/1.0.1)                      | MIT     |
 
 # Third-party software
 
-- [SwiftLint](https://github.com/realm/SwiftLint) / [0.31.0: Busy Laundromat](https://github.com/realm/SwiftLint/releases/tag/0.31.0) for macOS High Sierra
+| Type   | Name                                                                                                                              | License                            |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Style  | [SwiftLint](https://github.com/realm/SwiftLint) / [v0.57.0 for Monterey+](https://github.com/realm/SwiftLint/releases/tag/0.57.0) | MIT                                |
+| Action | [mxcl/xcodebuild@v3](https://github.com/mxcl/xcodebuild)                                                                          | [Unlicense](https://unlicense.org) |
+| Action | [cirruslabs/swiftlint-action@v1](https://github.com/cirruslabs/swiftlint-action/)                                                 | MIT                                |
 
-# License MIT
+# Unlicensed Free Software
 
-Copyright © 7530 - 7531 Mikhail Zhigulin of Novosibirsk.
+- [License](/LICENSE)
 
-Copyright © 7530 - 7531 PerseusRealDeal.
+## Required License Notices
 
-- The year starts from the creation of the world according to a Slavic calendar.
-- September, the 1st of Slavic year.
+© Mikhail A. Zhigulin of Novosibirsk **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit</br>
+© PerseusRealDeal **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit</br>
+© 2025 The SwiftLint Contributors **for** SwiftLint</br>
+© GitHub **for** GitHub Action cirruslabs/swiftlint-action@v1</br>
 
-[LICENSE](/LICENSE) for details.
+# Credits
 
-***TODO:*** Add some special words about app's theme images and text that were found on the seas of Internet.
+<table>
+<tr>
+    <td>Balance and Control</td>
+    <td>kept by</td>
+    <td>Mikhail A. Zhigulin</td>
+</tr>
+<tr>
+    <td>Source Code</td>
+    <td>written by</td>
+    <td>Mikhail A. Zhigulin</td>
+</tr>
+<tr>
+    <td>Documentation</td>
+    <td>prepared by</td>
+    <td>Mikhail A. Zhigulin</td>
+</tr>
+<tr>
+    <td>Product Approbation</td>
+    <td>tested by</td>
+    <td>Mikhail A. Zhigulin</td>
+</tr>
+</table>
 
-# Author
+- Language support: [Reverso](https://www.reverso.net/)
+- Git clients: [SmartGit](https://syntevo.com/) and [GitHub Desktop](https://github.com/apps/desktop)
 
-> This app called as `DarkModeDiscovery` was written at Novosibirsk by Mikhail Zhigulin i.e. me, mzhigulin@gmail.com.
+# Prepared by
 
-> Mostly I'd like thank my lovely parents for supporting me in all my ways.
+> © Mikhail A. Zhigulin of Novosibirsk

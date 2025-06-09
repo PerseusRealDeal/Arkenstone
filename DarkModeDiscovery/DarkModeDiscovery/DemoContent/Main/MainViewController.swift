@@ -1,19 +1,15 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  DarkModeDiscovery
 //
-//  Created by Mikhail Zhigulin in 7530.
+//  Created by Mikhail A. Zhigulin of Novosibirsk.
 //
-//  Copyright © 7530 - 7531 Mikhail Zhigulin of Novosibirsk.
-//  Copyright © 7530 - 7531 PerseusRealDeal.
-//
-//  Licensed under the special license. See LICENSE file.
-//  All rights reserved.
+//  Unlicensed Free Software.
 //
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
 
     @IBOutlet weak var splitView: NSSplitView!
     @IBOutlet weak var leftSplitWidthConstraint: NSLayoutConstraint!
