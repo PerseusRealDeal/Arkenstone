@@ -124,7 +124,7 @@ extension LoggerViewController: LoggerViewDelegate {
     }
 
     func reloadMessages() {
-        texViewMessages.string = report.text
+        texViewMessages.string = localReport.text
     }
 
     func clear() {

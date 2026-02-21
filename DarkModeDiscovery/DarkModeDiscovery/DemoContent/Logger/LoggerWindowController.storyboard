@@ -36,22 +36,22 @@
             <objects>
                 <viewController id="GFj-10-8bg" customClass="LoggerViewController" customModule="Arkenstone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="l6X-2e-Dmj">
-                        <rect key="frame" x="0.0" y="0.0" width="575" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="780" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-je-v1e">
-                                <rect key="frame" x="10" y="40" width="555" height="191"/>
+                                <rect key="frame" x="10" y="40" width="760" height="271"/>
                                 <clipView key="contentView" drawsBackground="NO" id="ta0-vY-Xbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="555" height="191"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="760" height="271"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PPo-gV-iDw">
-                                            <rect key="frame" x="0.0" y="0.0" width="555" height="191"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="760" height="271"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="555" height="191"/>
-                                            <size key="maxSize" width="555" height="10000000"/>
+                                            <size key="minSize" width="760" height="271"/>
+                                            <size key="maxSize" width="780" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -61,7 +61,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Vf7-8p-en1">
-                                    <rect key="frame" x="539" y="0.0" width="16" height="191"/>
+                                    <rect key="frame" x="744" y="0.0" width="16" height="271"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E91-G5-Edf">
-                                <rect key="frame" x="315" y="8" width="252" height="24"/>
+                                <rect key="frame" x="520" y="8" width="252" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="A8M-Vg-7MA">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -93,7 +93,7 @@
                                 </connections>
                             </segmentedControl>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vb-ky-Svo">
-                                <rect key="frame" x="246" y="11" width="66" height="18"/>
+                                <rect key="frame" x="451" y="11" width="66" height="18"/>
                                 <buttonCell key="cell" type="check" title="turned" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zya-PK-OL5">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -103,7 +103,7 @@
                                 </connections>
                             </button>
                             <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mvl-Ks-h3G">
-                                <rect key="frame" x="480" y="237" width="88" height="25"/>
+                                <rect key="frame" x="685" y="317" width="88" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="9ps-ie-2ja"/>
                                 </constraints>
@@ -122,7 +122,7 @@
                                 </connections>
                             </comboBox>
                             <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sp5-n0-LSD">
-                                <rect key="frame" x="344" y="237" width="88" height="25"/>
+                                <rect key="frame" x="549" y="317" width="88" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="mu9-YE-Gog"/>
                                 </constraints>
@@ -141,7 +141,7 @@
                                 </connections>
                             </comboBox>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-13-dsY">
-                                <rect key="frame" x="437" y="243" width="40" height="16"/>
+                                <rect key="frame" x="642" y="323" width="40" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Level:" id="pXD-im-9H0">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -149,7 +149,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-SY-ZL8">
-                                <rect key="frame" x="290" y="243" width="51" height="16"/>
+                                <rect key="frame" x="495" y="323" width="51" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Format:" id="0d1-Qg-NeP">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -157,7 +157,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ivl-5H-7ok">
-                                <rect key="frame" x="8" y="243" width="63" height="18"/>
+                                <rect key="frame" x="8" y="323" width="63" height="18"/>
                                 <buttonCell key="cell" type="check" title="marks" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="k26-gT-O8p">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -167,7 +167,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2JS-Tf-p5z">
-                                <rect key="frame" x="74" y="243" width="53" height="18"/>
+                                <rect key="frame" x="74" y="323" width="53" height="18"/>
                                 <buttonCell key="cell" type="check" title="time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Bgb-M9-TQY">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1kF-qO-mmn">
-                                <rect key="frame" x="130" y="243" width="64" height="18"/>
+                                <rect key="frame" x="130" y="323" width="64" height="18"/>
                                 <buttonCell key="cell" type="check" title="owner" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="84c-uB-Nk8">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-S8-Hbp">
-                                <rect key="frame" x="197" y="243" width="90" height="18"/>
+                                <rect key="frame" x="197" y="323" width="90" height="18"/>
                                 <buttonCell key="cell" type="check" title="dirrectives" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="sfP-aC-4Ip">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -243,7 +243,7 @@
                 </viewController>
                 <customObject id="E7p-N3-aLo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="139"/>
+            <point key="canvasLocation" x="-87" y="181"/>
         </scene>
     </scenes>
 </document>

@@ -74,7 +74,7 @@ class LoggerViewPresenter: MVPPresenter {
 
         view?.makeUp()
 
-        reportObservation = report.observe(\.lastMessage, options: .new) { _, _ in
+        reportObservation = localReport.observe(\.lastMessage, options: .new) { _, _ in
 
             // Debug for debug leads to the code crash case. Don't try like this...
 
@@ -100,7 +100,7 @@ class LoggerViewPresenter: MVPPresenter {
         log.turned = turned == true ? .on : .off
 
         if log.turned == .off {
-            report.clear()
+            localReport.clear()
             (view as? LoggerViewDelegate)?.clear()
         }
     }
