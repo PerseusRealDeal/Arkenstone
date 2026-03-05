@@ -57,44 +57,14 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="Qj0-cm-h4X" customClass="LocationView" customModule="Arkenstone" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="450" height="100"/>
                                             </customView>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVi-7H-eo4">
-                                                <rect key="frame" x="303" y="3" width="144" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="ghZ-q9-cmJ"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6vg-gg-noP">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="showOptions:" target="E1e-1t-HN6" id="HB1-Xy-H7A"/>
-                                                </connections>
-                                            </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FxC-EW-g57">
-                                                <rect key="frame" x="303" y="33" width="144" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="sS2-f3-wwc"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="push" title="Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vWE-Uv-2lv">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="showMap:" target="E1e-1t-HN6" id="WMS-OL-x6b"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="pch-xV-LUR" firstAttribute="centerY" secondItem="ggy-pj-ydL" secondAttribute="centerY" id="49R-kT-shj"/>
                                             <constraint firstItem="pch-xV-LUR" firstAttribute="height" secondItem="ggy-pj-ydL" secondAttribute="height" id="AxD-dD-CkH"/>
-                                            <constraint firstAttribute="bottom" secondItem="pVi-7H-eo4" secondAttribute="bottom" constant="10" id="NAL-bd-3JX"/>
                                             <constraint firstAttribute="trailing" secondItem="Qj0-cm-h4X" secondAttribute="trailing" id="NES-Pg-sQG"/>
                                             <constraint firstItem="Qj0-cm-h4X" firstAttribute="top" secondItem="ggy-pj-ydL" secondAttribute="top" id="Ozl-YE-S7k"/>
                                             <constraint firstItem="pch-xV-LUR" firstAttribute="width" secondItem="ggy-pj-ydL" secondAttribute="width" id="PBe-yA-LZj"/>
-                                            <constraint firstItem="FxC-EW-g57" firstAttribute="leading" secondItem="pVi-7H-eo4" secondAttribute="leading" id="PZR-xq-h4p"/>
-                                            <constraint firstItem="pVi-7H-eo4" firstAttribute="top" secondItem="FxC-EW-g57" secondAttribute="bottom" constant="10" id="TD2-uc-aVg"/>
                                             <constraint firstAttribute="bottom" secondItem="Qj0-cm-h4X" secondAttribute="bottom" id="XGu-oN-DQX"/>
-                                            <constraint firstAttribute="trailing" secondItem="pVi-7H-eo4" secondAttribute="trailing" constant="10" id="e9X-0W-JIR"/>
                                             <constraint firstItem="pch-xV-LUR" firstAttribute="centerX" secondItem="ggy-pj-ydL" secondAttribute="centerX" id="fvI-Te-MmL"/>
                                             <constraint firstItem="Qj0-cm-h4X" firstAttribute="leading" secondItem="ggy-pj-ydL" secondAttribute="leading" id="t4H-7n-pLV"/>
                                         </constraints>
@@ -141,27 +111,12 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="imageDark" value="DragonAndBilbo"/>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-LX-3kz">
-                                                <rect key="frame" x="303" y="3" width="144" height="32"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="wme-2l-uHd"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="push" title="Logger" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yGN-He-rVc">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="system"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="showLogger:" target="E1e-1t-HN6" id="o4g-D8-8ke"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="HHM-LX-3kz" secondAttribute="trailing" constant="10" id="1qA-T8-q2v"/>
                                             <constraint firstItem="mj2-Gc-sLl" firstAttribute="top" secondItem="dXU-fX-v5M" secondAttribute="top" id="BJ6-CX-yT3"/>
                                             <constraint firstItem="mj2-Gc-sLl" firstAttribute="leading" secondItem="dXU-fX-v5M" secondAttribute="leading" id="D90-Jc-o5X"/>
                                             <constraint firstAttribute="trailing" secondItem="mj2-Gc-sLl" secondAttribute="trailing" id="DKM-aU-XPH"/>
                                             <constraint firstAttribute="bottom" secondItem="mj2-Gc-sLl" secondAttribute="bottom" id="PuL-T1-pBj"/>
-                                            <constraint firstAttribute="bottom" secondItem="HHM-LX-3kz" secondAttribute="bottom" constant="10" id="nPA-oK-X66"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -183,11 +138,56 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FxC-EW-g57">
+                                <rect key="frame" x="23" y="3" width="144" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="sS2-f3-wwc"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vWE-Uv-2lv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showMap:" target="E1e-1t-HN6" id="WMS-OL-x6b"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HHM-LX-3kz">
+                                <rect key="frame" x="163" y="3" width="144" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="wme-2l-uHd"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Logger" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yGN-He-rVc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showLogger:" target="E1e-1t-HN6" id="o4g-D8-8ke"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pVi-7H-eo4">
+                                <rect key="frame" x="303" y="3" width="144" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="ghZ-q9-cmJ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Options" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6vg-gg-noP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showOptions:" target="E1e-1t-HN6" id="HB1-Xy-H7A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="HHM-LX-3kz" firstAttribute="centerY" secondItem="pVi-7H-eo4" secondAttribute="centerY" id="1gW-wl-UOI"/>
+                            <constraint firstAttribute="trailing" secondItem="pVi-7H-eo4" secondAttribute="trailing" constant="10" id="Cca-hi-7ge"/>
+                            <constraint firstItem="HHM-LX-3kz" firstAttribute="leading" secondItem="FxC-EW-g57" secondAttribute="trailing" constant="10" id="Ol2-8P-Ify"/>
+                            <constraint firstItem="pVi-7H-eo4" firstAttribute="leading" secondItem="HHM-LX-3kz" secondAttribute="trailing" constant="10" id="PuD-7x-1fm"/>
                             <constraint firstAttribute="trailing" secondItem="g6I-Mb-bdx" secondAttribute="trailing" id="Xqq-2Q-uoO"/>
                             <constraint firstItem="g6I-Mb-bdx" firstAttribute="top" secondItem="Wzp-zk-jds" secondAttribute="top" id="eiU-Sr-XKg"/>
                             <constraint firstItem="g6I-Mb-bdx" firstAttribute="leading" secondItem="Wzp-zk-jds" secondAttribute="leading" id="gwg-eX-CK7"/>
+                            <constraint firstItem="FxC-EW-g57" firstAttribute="centerY" secondItem="pVi-7H-eo4" secondAttribute="centerY" id="mof-NM-oJ7"/>
+                            <constraint firstAttribute="bottom" secondItem="pVi-7H-eo4" secondAttribute="bottom" constant="10" id="vrO-jj-lOg"/>
                             <constraint firstAttribute="bottom" secondItem="g6I-Mb-bdx" secondAttribute="bottom" id="zVg-ad-kQf"/>
                         </constraints>
                     </view>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E08463C2F59490200479F39 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08463B2F59490200479F39 /* Coordinator.swift */; };
+		2E08463E2F5955EA00479F39 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08463D2F5955EA00479F39 /* MainViewPresenter.swift */; };
 		2E1D06382ED9774D0050101F /* MapWindowController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E1D06372ED9774D0050101F /* MapWindowController.storyboard */; };
 		2E26B77A2D05B7B80009B96B /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B7792D05B7B80009B96B /* LocationView.swift */; };
 		2E26B7862D061B890009B96B /* AppGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E26B7852D061B890009B96B /* AppGlobals.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E08463B2F59490200479F39 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2E08463D2F5955EA00479F39 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		2E1D06372ED9774D0050101F /* MapWindowController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapWindowController.storyboard; sourceTree = "<group>"; };
 		2E26B7792D05B7B80009B96B /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		2E26B7852D061B890009B96B /* AppGlobals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGlobals.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 				2EB0479F2ED75D0F00D966CD /* MainWindowController.storyboard */,
 				E0A2934B288E520000F467E8 /* MainWindowController.swift */,
 				E00F8382288A4A04000D0A01 /* MainViewController.swift */,
+				2E08463D2F5955EA00479F39 /* MainViewPresenter.swift */,
 				2EBB4CC12ED75BA500C44504 /* Components */,
 			);
 			path = Main;
@@ -294,6 +299,7 @@
 		E0A2934A288E517800F467E8 /* DemoContent */ = {
 			isa = PBXGroup;
 			children = (
+				2E08463B2F59490200479F39 /* Coordinator.swift */,
 				2EBB4CC22ED75BBF00C44504 /* MainMenu */,
 				4BD028FE295EF05800E294E9 /* Main */,
 				2E1D06342ED976FE0050101F /* Map */,
@@ -478,6 +484,7 @@
 				2E79A4FE2F4700C400120DB0 /* MessageLabel.swift in Sources */,
 				E01D2D3A289A76A6009B932F /* Companion.swift in Sources */,
 				2EBB4CBB2ED75B6700C44504 /* LoggerWindowController.swift in Sources */,
+				2E08463E2F5955EA00479F39 /* MainViewPresenter.swift in Sources */,
 				4B6A98BB295CAF3400965FAF /* OptionsWindowController.swift in Sources */,
 				4B6C3D2C29704130001299E6 /* ItemImageView.swift in Sources */,
 				E00F8383288A4A04000D0A01 /* MainViewController.swift in Sources */,
@@ -492,6 +499,7 @@
 				4B6F459C2965AD1200859528 /* CompanionViewController.swift in Sources */,
 				E0A29354288E70B200F467E8 /* AppDelegate.swift in Sources */,
 				E0A2934C288E520000F467E8 /* MainWindowController.swift in Sources */,
+				2E08463C2F59490200479F39 /* Coordinator.swift in Sources */,
 				4B829B2729812D7F00FCE9FF /* TheMenu.swift in Sources */,
 				4B3A67E329658C0A0024077F /* CompanionListViewController.swift in Sources */,
 			);

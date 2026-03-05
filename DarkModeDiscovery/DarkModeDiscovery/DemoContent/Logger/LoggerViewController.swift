@@ -139,13 +139,18 @@ extension LoggerViewController: LoggerViewDelegate {
         buttonClose.title = "Close"
 
         texViewMessages.backgroundColor = .clear
-        texViewMessages.textColor = .darkGray
+        // texViewMessages.textColor = .darkGray
     }
 
     func makeUp() {
+
         if isHighSierra {
             view.window?.appearance = DarkModeAgent.DarkModeUserChoice == .on ?
             DARK_APPEARANCE_DEFAULT_IN_USE : LIGHT_APPEARANCE_DEFAULT_IN_USE
+
+            texViewMessages.textColor = DarkMode.style == .light ? .darkGray : .white
+        } else {
+            texViewMessages.textColor = DarkMode.style == .light ? .darkGray : #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         }
     }
 }

@@ -12,6 +12,7 @@ import MapKit
 
 import ConsolePerseusLogger
 import PerseusGeoKit
+import PerseusDarkMode
 
 class MapViewController: NSViewController {
 
@@ -77,12 +78,7 @@ class MapViewController: NSViewController {
         super.viewDidLoad()
 
         textViewLog.backgroundColor = .clear
-        textViewLog.textColor = .darkGray
-
         checkButtonAutoMapToCurrent.state = autoMapToCurrent ? .on : .off
-
-        // Connect to Geo Coordinator
-        GeoCoordinator.register(stakeholder: self, selector: #selector(reload))
 
         // Connect to Log Reporting
         logReportObservation = localReport.observe(\.lastMessage, options: .new) { _, _ in
@@ -90,6 +86,13 @@ class MapViewController: NSViewController {
         }
 
         textScrollViewLog.isHidden = false
+
+        // Connect to Geo Coordinator
+        GeoCoordinator.register(stakeholder: self, selector: #selector(reload))
+
+        // Connect to Dark Mode explicitly
+        DarkModeAgent.register(stakeholder: self, selector: #selector(makeUp))
+        makeUp()// That's for now, call if not the first, main, screen.
     }
 
     override func viewDidAppear() {
@@ -112,6 +115,20 @@ class MapViewController: NSViewController {
 // MARK: - Implementation
 
 extension MapViewController {
+
+    @objc private func makeUp() {
+
+        log.message("[\(type(of: self))].\(#function), DarkMode: \(DarkMode.style)")
+
+        // view.layer?.backgroundColor = NSColor.perseusBlue.cgColor
+
+        if isHighSierra {
+            view.window?.appearance = LIGHT_APPEARANCE_DEFAULT_IN_USE
+            textViewLog.textColor = .darkGray
+        } else {
+            textViewLog.textColor = DarkMode.style == .light ? .darkGray : #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+        }
+    }
 
     @objc private func reload() {
         labelGeoStatus.stringValue = "\(GeoAgent.currentStatus)".capitalized

@@ -1,9 +1,9 @@
 <div align="center">
 
-Discovery project
+The fan macOS app
 ==
 
-__The macOS fan app__
+__Discovery project__
 
 [![Actions Status](https://github.com/perseusrealdeal/arkenstone/actions/workflows/main.yml/badge.svg)](https://github.com/perseusrealdeal/arkenstone/actions/workflows/main.yml)
 [![Style](https://github.com/perseusrealdeal/arkenstone/actions/workflows/swiftlint.yml/badge.svg)](https://github.com/perseusrealdeal/arkenstone/actions/workflows/swiftlint.yml)
@@ -14,11 +14,12 @@ __The macOS fan app__
 [![Swift](https://img.shields.io/badge/Swift-5-orange.svg)](https://docs.swift.org/swift-book/RevisionHistory/RevisionHistory.html)
 [![SDK](https://img.shields.io/badge/SDK-UIKit%20-blueviolet.svg)](https://developer.apple.com/documentation/uikit)
 
+[![PackageManager](http://img.shields.io/:PackageManager-SwiftPM-green.svg)](https://docs.swift.org/swiftpm/documentation)
 [![ConsolePerseusLogger](http://img.shields.io/:ConsolePerseusLogger-1.7.1-green.svg)](https://github.com/perseusrealdeal/ConsolePerseusLogger.git)
 [![PerseusDarkMode](http://img.shields.io/:PerseusDarkMode-2.2.0-green.svg)](https://github.com/perseusrealdeal/PerseusDarkMode.git)
 [![PerseusGeoKit](http://img.shields.io/:PerseusGeoKit-1.2.1-green.svg)](https://github.com/perseusrealdeal/PerseusGeoKit.git)
 
-[`A3 Environment`](/APPROBATION.md) • [`CHANGELOG`](/CHANGELOG.md) • [`Unlicense`](/LICENSE)
+[`A3 Environment`](/APPROBATION.md) • [`Unlicense`](/LICENSE)
 
 </div>
 
@@ -65,7 +66,7 @@ Our Terms
 The why
 --
 
-> This app serves the only one purpose —— the first-party software approbation, but also and the third.
+This app serves the only one purpose —— the first-party `software approbation`, but also and the third.
 
 Preview material
 --
@@ -92,8 +93,9 @@ TODO: link to video
 Top features
 --
 
-- `Geo option:` Light, Dark, Auto
-- `Dark Mode option:` Light, Dark, Auto
+- `Geo:` Current Location, Location Updates, Map Screen
+- `Dark Mode:` Light, Dark, Auto
+- `Logging:` Screen for `CPL` capabilities
 
 Requirements
 ==
@@ -117,7 +119,7 @@ Third-party software
 ==
 
 | Type   | Name                                                                                  | License                            |
-| ------ | ------------------------------------------------------------------------------------- | ---------------------------------- |
+| ------ | ------------------------------------------------------------------------------------- | :--------------------------------: |
 | Style  | [SwiftLint v0.57.0 Monterey+](https://github.com/realm/SwiftLint/releases/tag/0.57.0) | MIT                                |
 | Action | [mxcl/xcodebuild@v3](https://github.com/mxcl/xcodebuild)                              | [Unlicense](https://unlicense.org) |
 | Action | [cirruslabs/swiftlint-action@v1](https://github.com/cirruslabs/swiftlint-action/)     | MIT                                |
@@ -125,16 +127,16 @@ Third-party software
 Account points 
 ==
 
-- Explicit start point [main.swift](/Convertor/main.swift)
-- Explicit app delegate [TestingAppDelegate.swift](/PerseusTests/TestingAppDelegate.swift)
-- Explicit app globals [AppGlobals.swift](/Convertor/AppGlobals.swift)
+- Explicit start point [main.swift](/DarkModeDiscovery/DarkModeDiscovery/main.swift)
+- Explicit app delegate [TestingAppDelegate.swift](/DarkModeDiscovery/DarkModeDiscoveryTests/Configuration/TestingAppDelegate.swift)
+- Explicit app globals [AppGlobals.swift](/DarkModeDiscovery/DarkModeDiscovery/AppGlobals.swift)
 - Architectural points: 
     - MVP applied. Based on [Gist](https://gist.github.com/PerseusRealDeal/5301e90881732f0cd0040e2083a78a3d)
-- [Changelog](/CHANGELOG.md)
+    - Coordinator. [`Coordinator.swift`](/DarkModeDiscovery/DarkModeDiscovery/DemoContent/Coordinator.swift)
 - [A3 environment specification](/APPROBATION.md)
 - [GitHub CI build & test](/.github/workflows/main.yml)
 - [GitHub CI SwiftLint](/.github/workflows/swiftlint.yml)
-- [SwiftLint Rules](/.swiftlint.yml)
+- [SwiftLint Rules](/DarkModeDiscovery/.swiftlint.yml)
 - [Git Config](/.gitignore)
 - SwiftLint shell script as a build phase, SwiftLint preinstallation required
 
@@ -151,8 +153,8 @@ The project has been started in 7530 by `Mikhail A. Zhigulin of Novosibirsk`.<br
 Other required licenses details
 --
 
-© Mikhail A. Zhigulin of Novosibirsk **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit</br>
-© PerseusRealDeal **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit</br>
+© Mikhail A. Zhigulin of Novosibirsk **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit, MessageLabel</br>
+© PerseusRealDeal **for** ConsolePerseusLogger, PerseusDarkMode, PerseusGeoKit, MessageLabel</br>
 © 2025 The SwiftLint Contributors **for** SwiftLint</br>
 © GitHub **for** GitHub Action cirruslabs/swiftlint-action@v1</br>
 
@@ -189,14 +191,18 @@ Contributing
 ==
 
 > [!NOTE]
-> The product is constructed in `P2P` relationship paradigm that means the only one single and the same face in the product team during all development process.
+> The product is constructed in `P2P` relationship paradigm that means the only one single and the same face in the product team during all preparation process.
 
 `Bug reports are welcome`, create an issue and give details.
 
 Prepared by
 ==
 
-> © Mikhail A. Zhigulin of Novosibirsk
+<div align="center">
+
+`© Mikhail A. Zhigulin of Novosibirsk`
+
+</div>
 
 Contact
 --

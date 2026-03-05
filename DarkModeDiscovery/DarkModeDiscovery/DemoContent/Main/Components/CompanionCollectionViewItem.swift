@@ -12,6 +12,8 @@ import PerseusDarkMode
 
 class CompanionCollectionViewItem: NSCollectionViewItem {
 
+    private let theDarknessTrigger = DarkModeObserver()
+
     override var isSelected: Bool {
         didSet {
             super.isSelected = isSelected
@@ -29,12 +31,10 @@ class CompanionCollectionViewItem: NSCollectionViewItem {
         }
     }
 
-    let darkModeObserver = DarkModeObserver()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        darkModeObserver.action = { _ in self.makeUp() }
+        theDarknessTrigger.action = { _ in self.makeUp() }
 
         makeUp()
         updateData()
@@ -49,6 +49,7 @@ class CompanionCollectionViewItem: NSCollectionViewItem {
 
     private func makeUp() {
         imageView?.layer?.borderColor = NSColor.customChosenOne.cgColor
-        textField?.textColor = isSelected ? NSColor.customChosenOne : NSColor.black
+        textField?.textColor = isSelected ?
+            .customLabel : (DarkMode.style == .light ? .white : .black)
     }
 }

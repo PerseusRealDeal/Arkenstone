@@ -2,9 +2,7 @@
 
 > Build System: macOS Monterey 12.7.6 / Xcode 14.2
 
-## macOS
-
-> Approbated capability: Logging<br/>
+> Approbated capability: Logging —— Console Perseus Logger
 
 | macOS       | Version  | CPL | Details |
 | ----------- | -------- | --- | ------- |
@@ -17,9 +15,9 @@
 | Sonoma      | 14.7.4   | ok  | -       |
 | Sequoia     | 15.3.1   | ok  | -       |
 
-Console.app Logging Issue: If log messages in one method more than two, Console.app can show not all from the method. Issue takes place but not discovered in detail.
+Issue: If logger called in one method twice or more, Console.app shows not all passed messages from the method. Issue takes place but not discovered in detail.
 
-> Approbated capability: Dark Mode<br/>
+> Approbated capability: Dark Mode —— Perseus Dark Mode
 
 | macOS       | Version  | PDM | Details |
 | ----------- | -------- | --- | ------- |
@@ -32,7 +30,7 @@ Console.app Logging Issue: If log messages in one method more than two, Console.
 | Sonoma      | 14.7.4   | ok  | -       |
 | Sequoia     | 15.3.1   | ok  | -       |
 
-> Approbated capability: Location<br/>
+> Approbated capability: Location —— Perseus Geo Kit
 
 | macOS       | Version  | PGK | Details |
 | ----------- | -------- | --- | ------- |
