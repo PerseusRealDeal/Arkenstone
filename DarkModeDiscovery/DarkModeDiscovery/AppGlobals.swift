@@ -78,6 +78,16 @@ struct AppGlobals {
             }
         }
     }
+
+    // MARK: - Contract
+
+    static func quitTheApp() {
+        log.message("[\(type(of: self))].\(#function)", .info)
+
+        // Instructions before quit.
+
+        app.terminate(appDelegate)
+    }
 }
 
 func loadJsonLogProfile(_ name: String) -> (status: Bool, info: String) {

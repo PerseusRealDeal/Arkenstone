@@ -8,31 +8,31 @@
 //
 
 import Cocoa
+
 import ConsolePerseusLogger
 import PerseusDarkMode
+
+extension MapWindowController {
+
+    class func storyboardInstance() -> MapWindowController {
+
+        let storyboard = NSStoryboard(name: String(describing: self), bundle: nil)
+        let screen = storyboard.instantiateInitialController() as? MapWindowController
+
+        // Do default setup; don't set any parameter causing loadView up, breaks unit tests
+
+        // screen?.modalTransitionStyle = UIModalTransitionStyle.partialCurl
+        // screen?.view.backgroundColor = UIColor.yellow
+
+        return screen ?? MapWindowController()
+    }
+}
 
 class MapWindowController: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
         super.windowDidLoad()
 
-        let title = "The Middle Earth Map"
-
-        if #available(macOS 10.14, *) {
-            self.window?.title = title
-        } else {
-            self.windowTitle(forDocumentDisplayName: title)
-        }
-
-        window?.appearance = LIGHT_APPEARANCE_DEFAULT_IN_USE
-
-        // Connect to Dark Mode explicitly
-        DarkModeAgent.register(stakeholder: self, selector: #selector(makeUp))
-        makeUp()// That's for now, call if not the first, main, screen.
-    }
-
-    @objc private func makeUp() {
-        log.message("[\(type(of: self))].\(#function)")
-        // let isDark = DarkMode.style == .dark
+        self.window?.title = "The Middle Earth Map"
     }
 }

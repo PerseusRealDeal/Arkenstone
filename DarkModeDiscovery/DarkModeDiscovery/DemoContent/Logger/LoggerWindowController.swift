@@ -46,10 +46,10 @@ import ConsolePerseusLogger
 
 extension LoggerWindowController {
 
-    class func storyboardInstance() -> NSWindowController {
+    class func storyboardInstance() -> LoggerWindowController {
 
         let storyboard = NSStoryboard(name: String(describing: self), bundle: nil)
-        let screen = storyboard.instantiateInitialController() as? NSWindowController
+        let screen = storyboard.instantiateInitialController() as? LoggerWindowController
 
         if let vc = screen?.contentViewController as? LoggerViewController {
             vc.presenter = LoggerViewPresenter(view: vc)
@@ -61,7 +61,7 @@ extension LoggerWindowController {
         // screen?.modalTransitionStyle = UIModalTransitionStyle.partialCurl
         // screen?.view.backgroundColor = UIColor.yellow
 
-        return screen ?? NSWindowController()
+        return screen ?? LoggerWindowController()
     }
 }
 

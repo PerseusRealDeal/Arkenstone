@@ -19,77 +19,55 @@ import struct PerseusGeoKit.LogMessage
 // swiftlint:disable type_name
 typealias DM_LOG = PerseusDarkMode.PerseusLogger
 typealias GEO_LOG = PerseusGeoKit.PerseusLogger
-
-typealias DM_LOG_MESSAGE = PerseusDarkMode.LogMessage
-typealias GEO_LOG_MESSAGE = PerseusGeoKit.LogMessage
-
 // swiftlint:enable type_name
 
-// MARK: - Log Report
+// MARK: - The PerseusDarkMode Logger
 
-func report(_ message: DM_LOG_MESSAGE) {
+func report(_ message: PerseusDarkMode.LogMessage) {
     let text = "[\(message.localTime.date)] [\(message.localTime.time)] \(message.text)"
-    localReport.lastMessage = text
+    localReport.lastMessage = "SUB_DM: " + text
 }
 
-func report(_ message: GEO_LOG_MESSAGE) {
+DM_LOG.customActionOnMessage = report(_:)
+DM_LOG.output = .custom
+// DM_LOG.turned = .off
+
+// MARK: - The PerseusGeoKit Logger
+
+func report(_ message: PerseusGeoKit.LogMessage) {
     let text = "[\(message.localTime.date)] [\(message.localTime.time)] \(message.text)"
-    localReport.lastMessage = text
+    localReport.lastMessage = "SUB_GEO: " + text
 }
+
+GEO_LOG.customActionOnMessage = report(_:)
+GEO_LOG.output = .custom
+// GEO_LOG.turned = .off
+
+// MARK: - The Logger
 
 let localReport = ConsolePerseusLogger.PerseusLogger.Report()
 
-// MARK: - Logger
-
-GEO_LOG.customActionOnMessage = report(_:)
-DM_LOG.customActionOnMessage = report(_:)
-
 log.customActionOnMessage = localReport.report(_:)
-
-GEO_LOG.output = .custom
-DM_LOG.output = .custom
 log.output = .custom
-
 // log.turned = .off
-// dmlog.turned = .off
-// geolog.turned = .off
 
-log.message("The app's start point...", .info, .custom)
+// MARK: - The start line
 
-/*
-var isLoadedInfo = ""
-
-if let path = Bundle.main.url(forResource: "CPLConfig", withExtension: "json") {
-    if log.loadConfig(path), dmlog.loadConfig(path), geolog.loadConfig(path) {
-        isLoadedInfo = "Options successfully reseted!"
-    } else {
-        isLoadedInfo = "Failed to reset options!"
-    }
-} else {
-    isLoadedInfo = "Failed to create URL!"
-}
-
-log.message(isLoadedInfo)
-*/
-
-log.message("The app's start point...", .info)
-
-// MARK: - Construct the app's top elements
+log.message("The start line...", .info)
 
 let globals = AppGlobals()
 
 let app = NSApplication.shared
-
 let appPurpose = NSClassFromString("TestingAppDelegate") as? NSObject.Type
 let appDelegate = appPurpose?.init() ?? AppDelegate()
 
-let storyboard = NSStoryboard(name: String(describing: MainWindowController.self), bundle: nil)
-let screen = storyboard.instantiateInitialController() as? NSWindowController
 let mainMenu = NSNib(nibNamed: NSNib.Name("MainMenu"), bundle: nil)
 
-// setMainWindow()
+Coordinator.start()
 
-// MARK: - Run the app
+// MARK: - The app's run
+
+log.message("The app is about to run...", .info)
 
 /*
 
@@ -101,53 +79,11 @@ let mainMenu = NSNib(nibNamed: NSNib.Name("MainMenu"), bundle: nil)
  */
 
 app.setActivationPolicy(.regular)
-
 mainMenu?.instantiate(withOwner: app, topLevelObjects: nil)
-screen?.window?.makeKeyAndOrderFront(nil)
+
+Coordinator.mainWindowToFront()
 
 app.delegate = appDelegate as? NSApplicationDelegate
-
 app.activate(ignoringOtherApps: true)
+
 app.run()
-
-// MARK: - Custom Main Window
-
-func setMainWindow() {
-    if let screen = NSScreen.main,
-       NSApplication.shared.windows.first?.windowController is MainWindowController,
-       var frame = NSApplication.shared.windows.first?.frame {
-
-        let height: CGFloat = 600 // Default main window height
-        let width: CGFloat = 800 // Default main window width
-
-        let origin_x = screen.frame.size.width / 2 - width / 2
-        let origin_y = screen.frame.size.height / 2 - height / 2
-
-        frame.size = NSSize(width: width, height: height)
-        frame.origin = NSPoint(x: origin_x, y: origin_y)
-
-        NSApplication.shared.windows.first?.setFrame(frame, display: true)
-    }
-}
-
-/*
-
-var tiduint: UInt64 = 0
-pthread_threadid_np(nil, &tiduint)
-
-let tid = "0x\(String(format: "%02x", tiduint))"
-
-log.message("The app's start point... TID: \(tid)", .info)
-
-NSLog("NSLog Start: The app's start point... TID: \(tid)")
-
-if #available(macOS 11.0, *) {
-    let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "network")
-    logger.log("Logger Start: The app's start point... TID: \(tid)")
-}
-
-let oslog = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "network")
-
-os_log( "%{public}@", log: oslog,
-        "os_log Start: The app's start point... TID: \(tid)")
-*/
