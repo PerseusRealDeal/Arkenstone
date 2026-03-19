@@ -28,9 +28,10 @@ func report(_ message: PerseusDarkMode.LogMessage) {
     localReport.lastMessage = "SUB_DM: " + text
 }
 
+DM_LOG.turned = .on
+
 DM_LOG.customActionOnMessage = report(_:)
 DM_LOG.output = .custom
-// DM_LOG.turned = .off
 
 // MARK: - The PerseusGeoKit Logger
 
@@ -39,17 +40,19 @@ func report(_ message: PerseusGeoKit.LogMessage) {
     localReport.lastMessage = "SUB_GEO: " + text
 }
 
+GEO_LOG.turned = .on
+
 GEO_LOG.customActionOnMessage = report(_:)
 GEO_LOG.output = .custom
-// GEO_LOG.turned = .off
 
 // MARK: - The Logger
 
 let localReport = ConsolePerseusLogger.PerseusLogger.Report()
 
+log.turned = .on
+
 log.customActionOnMessage = localReport.report(_:)
 log.output = .custom
-// log.turned = .off
 
 // MARK: - The start line
 
